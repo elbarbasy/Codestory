@@ -2,6 +2,7 @@ import '../styles/globals.css'
 import { Metadata } from 'next'
 import { SiteNavbar } from '../components/Navbar'
 import { SiteFooter } from '../components/Footer'
+import RequestQuoteModalLoader from '../components/RequestQuoteModalLoader'
 
 export const metadata: Metadata = {
   title: 'CodeStory — Build Websites That Grow Your Business',
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <SiteNavbar />
         <main>{children}</main>
         <SiteFooter />
+        <RequestQuoteModalLoader />
       </body>
     </html>
   )
