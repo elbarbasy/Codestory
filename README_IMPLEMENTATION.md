@@ -1,24 +1,19 @@
-# Implementation progress and next steps
+# CodeStory Supabase setup (placeholder assets)
 
-This commit adds an initial Next.js + TypeScript scaffold and a small set of components and pages that follow the PRD structure and design tokens.
+This branch implements a Vercel-friendly version of CodeStory using Next.js and Supabase. You chose to provide Supabase setup yourself; the repository now includes a SQL migration file at db/migrations.sql and helper instructions.
 
-What I added now:
-- Basic Next.js config and TypeScript setup
-- Tailwind config and global styles (design tokens from PRD)
-- Pages: home, services, portfolio, pricing, about, contact, not-found
-- Components: Navbar, Footer, Hero, TerminalLoader (simple terminal loader per motion spec)
+What I added in feature/full-vercel branch:
+- db/migrations.sql: SQL to create tables per PRD/13_DATABASE_DESIGN.md
+- src/lib/supabaseClient.ts: simple Supabase client wrapper (client-side)
+- Admin dashboard skeleton under /src/app/dashboard (login + dashboard placeholder)
+- .env.example and README_SUPABASE.md with setup instructions
+- package.json updated to include @supabase/supabase-js
 
-Notes and important decisions / assumptions:
-- The PRD requests Next.js 15 and Tailwind v4. These are referenced in package.json to match the PRD; when installing dependencies, the package manager may resolve compatible versions.
-- This scaffold focuses on the frontend. The PRD specifies a Laravel backend and Filament admin; that will be scaffolded in a separate commit if you want.
-- Asset files (logo, real mockups, images) are not included. Replace the "Mockup" placeholder in Hero with real assets.
-- Components are intentionally small and will be expanded into a full design-system component library (shadcn-style) in follow-up commits.
+Next steps for you (quick checklist):
+1. Create Supabase project and run db/migrations.sql in SQL editor.
+2. Create a Storage bucket (media) and configure access.
+3. Add env vars in Vercel (NEXT_PUBLIC_SUPABASE_URL, NEXT_PUBLIC_SUPABASE_ANON_KEY, SUPABASE_SERVICE_ROLE_KEY, NEXT_PUBLIC_OWNER_EMAIL).
+4. Deploy the repo to Vercel.
+5. Sign in via /dashboard/login using the owner email (codestory26@gmail.com) to access the dashboard.
 
-Recommended next steps (I can do these next):
-1. Wire up routing and layout refinements (mobile menu, language toggle).
-2. Implement responsive CSS details and refine spacing to match PRD exactly.
-3. Add unit / integration tests and linting rules.
-4. Scaffold Laravel backend (API endpoints and Filament admin) matching PRD/13 and PRD/14.
-5. Add CI (GitHub Actions) and Vercel deploy config.
-
-If you'd like me to continue now, confirm whether you want only the frontend scaffold pushed or both frontend and backend (Laravel) created and pushed. If you want backend too, I will scaffold the Laravel project in a follow-up commit.
+If you want, I can continue and implement full CRUD pages in the dashboard (create/edit services, portfolio upload flow, etc.).
