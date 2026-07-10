@@ -1,0 +1,1 @@
+Added @tailwindcss/postcss plugin and postcss.config.js to fix build error: "trying to use tailwindcss directly as a PostCSS plugin". This ensures PostCSS loads the correct Tailwind PostCSS plugin in Next.js builds.
